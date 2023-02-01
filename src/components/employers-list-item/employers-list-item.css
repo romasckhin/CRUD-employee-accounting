@@ -1,0 +1,39 @@
+.app-list-item {
+    padding: 15px;
+    border-bottom: 1px solid rgb(204, 163, 163);
+    color: rgb(126, 68, 192);
+}
+
+.app-list-item.increase {
+    color: red
+}
+
+.app-list-item .list-item-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.app-list-item .list-item-flex .item-btn {
+    display: flex;
+}
+
+.app-list-item .list-item-flex .item-btn .btn-tricks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: rgb(126, 68, 192);
+    cursor: pointer;
+    background-color: white;
+}
+
+.app-list-item .list-item-flex .item-btn .btn-trash {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: rgb(217, 144, 99);
+    cursor: pointer;
+    background-color: white;
+}
