@@ -1,6 +1,7 @@
 import './app.css'
 import Employerslist from '../employers-list/EmployersList'
 import { v4 as uuidv4 } from 'uuid';
+import Counter from '../counter/Counter';
 
 const App = () => {
 
@@ -13,6 +14,8 @@ const App = () => {
     return (
 
         <div className="container">
+
+            <Counter/>
 
             <Employerslist
                 data={data}

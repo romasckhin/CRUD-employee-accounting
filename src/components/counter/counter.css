@@ -1,0 +1,19 @@
+.counter {
+    padding: 10px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.counter button {
+    padding: 3px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(88, 88, 206);
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.counter .counter-number {
+    margin-left: 3px;
+}
