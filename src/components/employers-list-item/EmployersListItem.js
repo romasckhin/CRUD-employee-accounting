@@ -1,6 +1,8 @@
 import './employers-list-item.css'
 import { DiCssTricks  } from "react-icons/di";
 import { BsFillTrashFill } from "react-icons/bs"
+import { FcMoneyTransfer } from "react-icons/fc"
+import { RxEnvelopeOpen } from "react-icons/rx"
 import React, { Component } from 'react';
 
 
@@ -15,6 +17,10 @@ class EmployersListItem extends Component {
 
         this.className = {
             style: 'app-list-item'
+        }
+
+        this.salaryEmployee = {
+            salaryEmployee: false
         }
     }
 
@@ -37,21 +43,39 @@ class EmployersListItem extends Component {
         }
     }
 
+    candidateForPromotion = () => {
+        this.setState({
+            salaryEmployee: this.salaryEmployee = !this.salaryEmployee
+        })
+    }
 
     render() {
         return (
             <li className={this.className.style} >
                 <div className='list-item-flex'>
+
                     <div className='item-name'>
-                        {this.name}      
+                        {this.salaryEmployee? 
+                            <div className='item-name-icon'>
+                                <RxEnvelopeOpen/>
+                            </div>
+                            :
+                            <div className='item-name-icon'>
+                                <FcMoneyTransfer/>
+                            </div>
+                        }
+                        <div onClick={this.candidateForPromotion}>{this.name}</div>    
                     </div>
+
                     <div className='item-salary' >
                         {this.salary}
                     </div>
+
                     <div className='item-btn'>
                         <button title='Change content color' onClick={this.changeIncrease} className='btn-tricks'>{<DiCssTricks/>}</button>
                         <button className='btn-trash'>{<BsFillTrashFill/>}</button>
                     </div>
+
                 </div>
             </li>
         );
