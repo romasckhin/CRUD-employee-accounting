@@ -8,7 +8,9 @@ import React, { Component } from 'react';
 
 class EmployersListItem extends Component {
 
+
     constructor(props) {
+        
         super(props)
 
         this.name = props.name
@@ -23,6 +25,7 @@ class EmployersListItem extends Component {
             salaryEmployee: false
         }
     }
+
 
     changeIncrease = () => {
 
@@ -49,6 +52,7 @@ class EmployersListItem extends Component {
         })
     }
 
+
     render() {
         return (
             <li className={this.className.style} >
@@ -73,7 +77,7 @@ class EmployersListItem extends Component {
 
                     <div className='item-btn'>
                         <button title='Change content color' onClick={this.changeIncrease} className='btn-tricks'>{<DiCssTricks/>}</button>
-                        <button className='btn-trash'>{<BsFillTrashFill/>}</button>
+                        <button className='btn-trash' onClick={this.props.deleteItem} >{<BsFillTrashFill/>}</button>
                     </div>
 
                 </div>

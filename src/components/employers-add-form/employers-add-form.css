@@ -1,0 +1,11 @@
+.app-add-form {
+    text-align: center;
+    margin-top: 10px;
+    
+}
+
+.app-add-form input {
+    margin-left: 7px;
+    height: 30px;
+    width: 300px;
+}

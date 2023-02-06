@@ -1,13 +1,15 @@
 import EmployerslistItem from '../employers-list-item/EmployersListItem'
 import './employers-list.css'
 
-const Employerslist = ({data}) => {
+const Employerslist = ({data, deleteItem}) => {
+
 
     const elements = data.map(el => {
         return (
             <EmployerslistItem 
                 {...el} 
                 key={el.id}
+                deleteItem={() => deleteItem(el.id)}
             />
         )
     })
