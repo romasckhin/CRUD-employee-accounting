@@ -28,6 +28,16 @@ class App extends Component {
         })
      }
 
+     addItem = (name, salary) => {
+        const newItem = { id: uuidv4(), name, salary, increase: false }
+
+        this.setState(({data}) => {
+            const newArr = [...data, newItem]
+            return { data: newArr }
+        })
+     }
+
+
     render() {
 
         const {data} = this.state
@@ -42,7 +52,9 @@ class App extends Component {
                 deleteItem={this.deleteItem}
             />
 
-            <EmployersAddForm/>
+            <EmployersAddForm
+                addItem={this.addItem}
+            />
 
         </div>
         );

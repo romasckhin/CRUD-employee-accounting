@@ -4,6 +4,7 @@ import './employers-add-form.css'
 class EmployersAddForm extends Component {
 
     constructor(props) {
+
         super(props);
 
         this.state = {
@@ -18,6 +19,15 @@ class EmployersAddForm extends Component {
         })
     }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.props.addItem(this.state.name, this.state.salary);
+        this.setState({
+            name: '',
+            salary: ''
+        })
+    }
+
     render() {
 
         const {name, salary} = this.state
@@ -28,7 +38,7 @@ class EmployersAddForm extends Component {
 
                 <input name='name' onChange={this.onValueChange} value={name}/>
                 <input name='salary' onChange={this.onValueChange} salary={salary} />
-                
+                <button onClick={this.onSubmit}>click</button>
             </div>
         );
     }
