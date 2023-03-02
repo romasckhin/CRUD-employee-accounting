@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Counter from '../counter/Counter';
 import EmployersAddForm from '../employers-add-form/EmployersAddForm';
 import React, { Component } from 'react';
-
+import AppInfo from '../app-info/AppInfo';
 
 class App extends Component {
 
@@ -37,19 +37,37 @@ class App extends Component {
         })
      }
 
+     onToggleIncrease = (id) => {
+        this.setState( ({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {...item, increase: !item.increase}
+                }
+                return item
+            })
+        }))
+     }
 
     render() {
 
         const {data} = this.state
+        const employees = this.state.data.length
+        const premium =  this.state.data.filter(item => item.increase).length
 
         return (
             <div className="container">
 
             <Counter/>
+            
+            <AppInfo
+               employees={employees}
+               premium={premium}
+            />
 
             <Employerslist
                 data={data}
                 deleteItem={this.deleteItem}
+                onToggleIncrease={this.onToggleIncrease}
             />
 
             <EmployersAddForm

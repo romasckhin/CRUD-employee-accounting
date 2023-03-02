@@ -13,38 +13,11 @@ class EmployersListItem extends Component {
         
         super(props)
 
-        this.name = props.name
-        this.salary = props.salary
-        this.increase = props.increase
-
-        this.className = {
-            style: 'app-list-item'
-        }
-
         this.salaryEmployee = {
             salaryEmployee: false
         }
     }
 
-
-    changeIncrease = () => {
-
-        this.setState({
-            increase: this.increase = !this.increase
-        })
-
-        if (this.increase) {
-
-            this.setState({
-             style: this.className.style = 'app-list-item increase'
-            });
-
-        } else {
-            this.setState({
-                style: this.className.style = 'app-list-item'
-               });
-        }
-    }
 
     candidateForPromotion = () => {
         this.setState({
@@ -54,8 +27,19 @@ class EmployersListItem extends Component {
 
 
     render() {
+
+        const {onToggleIncrease, name, salary, deleteItem, increase} = this.props
+
+        
+        let className = 'app-list-item'
+
+        if (increase) {
+            className += ' increase'
+        } 
+
+
         return (
-            <li className={this.className.style} >
+            <li className={className} >
                 <div className='list-item-flex'>
 
                     <div className='item-name'>
@@ -68,16 +52,16 @@ class EmployersListItem extends Component {
                                 <FcMoneyTransfer/>
                             </div>
                         }
-                        <div onClick={this.candidateForPromotion}>{this.name}</div>    
+                        <div onClick={this.candidateForPromotion}>{name}</div>    
                     </div>
 
                     <div className='item-salary' >
-                        {this.salary}
+                        {salary}
                     </div>
 
                     <div className='item-btn'>
-                        <button title='Change content color' onClick={this.changeIncrease} className='btn-tricks'>{<DiCssTricks/>}</button>
-                        <button className='btn-trash' onClick={this.props.deleteItem} >{<BsFillTrashFill/>}</button>
+                        <button title='Change content color' onClick={onToggleIncrease} className='btn-tricks'>{<DiCssTricks/>}</button>
+                        <button className='btn-trash' onClick={deleteItem} >{<BsFillTrashFill/>}</button>
                     </div>
 
                 </div>

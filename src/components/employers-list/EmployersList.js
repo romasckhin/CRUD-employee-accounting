@@ -1,7 +1,7 @@
 import EmployerslistItem from '../employers-list-item/EmployersListItem'
 import './employers-list.css'
 
-const Employerslist = ({data, deleteItem}) => {
+const Employerslist = ({data, deleteItem, onToggleIncrease}) => {
 
 
     const elements = data.map(el => {
@@ -10,6 +10,7 @@ const Employerslist = ({data, deleteItem}) => {
                 {...el} 
                 key={el.id}
                 deleteItem={() => deleteItem(el.id)}
+                onToggleIncrease={() => onToggleIncrease(el.id)}
             />
         )
     })
